@@ -3,13 +3,13 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { CreateCoffeeDto } from "./dto/create-coffee.dto";
 import { UpdateCoffeeDto } from "./dto/update-coffee.dto";
-import { CoffeesEntity } from "./entities/coffees.entity";
+import { Coffees } from "./entities/coffees.entity";
 
 @Injectable()
 export class CoffeesService {
   constructor(
-    @InjectRepository(CoffeesEntity)
-    private readonly coffeesRepository: Repository<CoffeesEntity>
+    @InjectRepository(Coffees)
+    private readonly coffeesRepository: Repository<Coffees>
   ) {}
 
   findAll() {
