@@ -13,17 +13,17 @@ import {
 } from "@nestjs/common";
 import { CoffeesService } from "./coffees.service";
 import { CreateCoffeeDto } from "./dto/create-coffee.dto";
+import { PaginationQueryDto } from "./dto/pagination-query.dto";
 
 @Controller("coffees")
 export class CoffeesController {
   constructor(private readonly coffeesService: CoffeesService) {}
 
   @Get("flavors")
-  findAll(@Query() queryParams) {
-    //const { limit, offset } = queryParams;
+  findAll(@Query() paginationQueryDto: PaginationQueryDto) {
     //findAll(@Res() response) {
     //response.status(200).send("Find all coffees");
-    return this.coffeesService.findAll();
+    return this.coffeesService.findAll(paginationQueryDto);
   }
 
   @Get(":id")
