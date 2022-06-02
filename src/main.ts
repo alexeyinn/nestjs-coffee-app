@@ -1,7 +1,7 @@
 import { ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
-//2-37
+//2-40
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(
