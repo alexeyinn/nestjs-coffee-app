@@ -4,6 +4,7 @@ import { AppService } from "./app.service";
 import { CoffeesController } from "./modules/coffees/coffees.controller";
 import { CoffeesModule } from "./modules/coffees/coffees.module";
 import { TypeOrmModule } from "@nestjs/typeorm";
+import { CoffeeRatingsModule } from './modules/coffee-ratings/coffee-ratings.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
       autoLoadEntities: true,
       synchronize: true,
     }),
+    CoffeeRatingsModule,
   ],
   controllers: [AppController, CoffeesController],
   providers: [AppService],
