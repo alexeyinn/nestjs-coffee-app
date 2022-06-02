@@ -6,6 +6,7 @@ import { CoffeesModule } from "./modules/coffees/coffees.module";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { CoffeeRatingsModule } from "./modules/coffee-ratings/coffee-ratings.module";
 import { ConfigModule } from "@nestjs/config";
+import { CommonModule } from './modules/common/common.module';
 import * as Joi from "@hapi/joi";
 
 @Module({
@@ -28,6 +29,7 @@ import * as Joi from "@hapi/joi";
       synchronize: true,
     }),
     CoffeeRatingsModule,
+    CommonModule,
   ],
   controllers: [AppController, CoffeesController],
   providers: [AppService],
