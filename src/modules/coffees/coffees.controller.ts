@@ -22,9 +22,11 @@ export class CoffeesController {
 
   @Public()
   @Get("flavors")
-  findAll(@Query() paginationQueryDto: PaginationQueryDto) {
+  async findAll(@Query() paginationQueryDto: PaginationQueryDto) {
     //findAll(@Res() response) {
     //response.status(200).send("Find all coffees");
+    // Откладываем исполнение контроллера
+    //await new Promise((resolve) => setTimeout(resolve, 5000));
     return this.coffeesService.findAll(paginationQueryDto);
   }
 
