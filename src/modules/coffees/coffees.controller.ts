@@ -11,6 +11,7 @@ import {
   Query,
   Res,
 } from "@nestjs/common";
+import { Protocol } from "src/common/decorators/protocol.decorator";
 import { Public } from "src/common/decorators/public.decorator";
 import { CoffeesService } from "./coffees.service";
 import { CreateCoffeeDto } from "./dto/create-coffee.dto";
@@ -22,11 +23,16 @@ export class CoffeesController {
 
   @Public()
   @Get("flavors")
-  async findAll(@Query() paginationQueryDto: PaginationQueryDto) {
+  async findAll(
+    @Query() paginationQueryDto: PaginationQueryDto,
+    // default protocol value
+    @Protocol("https") protocol: string
+  ) {
     //findAll(@Res() response) {
     //response.status(200).send("Find all coffees");
     // Откладываем исполнение контроллера
     //await new Promise((resolve) => setTimeout(resolve, 5000));
+    console.log(protocol);
     return this.coffeesService.findAll(paginationQueryDto);
   }
 
